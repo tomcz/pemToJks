@@ -15,7 +15,7 @@ This is a Kotlin command line application that adds PEM-encoded X509 certificate
 ./gradlew
 ```
 
-This creates the `build/distributions/pemToJks.zip` bundle.
+This creates a `build/distributions/pemToJks.zip` application bundle.
 
 ## Run the application
 
