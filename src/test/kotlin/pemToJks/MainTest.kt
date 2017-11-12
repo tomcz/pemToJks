@@ -41,9 +41,21 @@ class MainTest {
     }
 
     @Test
+    fun shouldHandleFileWithoutCerts() {
+        val certs = readCertChain(keyFile)
+        assertEquals(0, certs.size)
+    }
+
+    @Test
     fun shouldParsePrivateKey() {
         val keys = readPrivateKeys(keyFile)
         assertEquals(1, keys.size)
+    }
+
+    @Test
+    fun shouldHandleFileWithoutKeys() {
+        val keys = readPrivateKeys(certFile)
+        assertEquals(0, keys.size)
     }
 
     @Test
