@@ -2,7 +2,9 @@
 
 # PEM to JKS
 
-This is a Kotlin command line application that adds PEM-encoded X509 certificates and RSA private keys to a Java KeyStore, so that they can be used for SSL/TLS in Java applications.
+This is a Kotlin command line application that adds PEM-encoded certificates (in X.509 format)
+and RSA private keys (in PKCS #8 format) to a Java KeyStore, so that they can be used for
+SSL/TLS in Java applications.
 
 ## Development
 
@@ -23,7 +25,7 @@ This creates a `build/distributions/pemToJks.zip` application bundle.
 
 ## Run the application
 
-The following commands are run from the root of the unzipped bundle.
+The following example commands are run from the root of the unzipped application bundle.
 
 View help text:
 
