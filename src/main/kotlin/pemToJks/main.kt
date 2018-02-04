@@ -124,19 +124,16 @@ fun verifyCertAndKey(cert: Certificate, key: PrivateKey) {
     println("Verifying certificate against key")
     val expected = UUID.randomUUID().toString()
 
-    val encCipher = Cipher.getInstance("RSA")
+    val encCipher = Cipher.getInstance("RSA", provider)
     encCipher.init(Cipher.ENCRYPT_MODE, cert.publicKey)
     val cipherText = encCipher.doFinal(expected.toByteArray(Charsets.UTF_8))
 
-    val decCipher = Cipher.getInstance("RSA")
+    val decCipher = Cipher.getInstance("RSA", provider)
     decCipher.init(Cipher.DECRYPT_MODE, key)
     val actual = String(decCipher.doFinal(cipherText), Charsets.UTF_8)
 
-    println("Expected: $expected")
-    println("Actual:   $actual")
-
     if (actual != expected) {
-        throw RuntimeException("Cannot verify certificate against key")
+        throw RuntimeException("Verification failed")
     }
 }
 

@@ -61,8 +61,6 @@ $> ./bin/pemToJks -cert cert.pem -key key.pem -alias useme -store test.jks
 Reading certificate file
 Reading key file
 Verifying certificate against key
-Expected: a5f684ee-54d3-4fd3-8b89-955b096848b5
-Actual:   a5f684ee-54d3-4fd3-8b89-955b096848b5
 Loading keystore
 Adding key & cert chain entry to keystore
 Saving keystore
