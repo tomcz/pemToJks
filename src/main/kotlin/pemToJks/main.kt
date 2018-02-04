@@ -133,7 +133,7 @@ fun verifyCertAndKey(cert: Certificate, key: PrivateKey) {
     val actual = String(decCipher.doFinal(cipherText), Charsets.UTF_8)
 
     if (actual != expected) {
-        throw RuntimeException("Verification failed")
+        throw RuntimeException("Verification failed!")
     }
 }
 

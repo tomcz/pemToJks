@@ -8,6 +8,7 @@ import java.io.File
 import java.security.KeyStore
 import java.security.cert.X509Certificate
 import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 
 class MainTest {
 
@@ -62,7 +63,12 @@ class MainTest {
     fun shouldVerifyThatCertAndKeyMatch() {
         val certs = readCertChain(certFile)
         val keys = readPrivateKeys(keyFile)
+
         verifyCertAndKey(certs[0], keys[0])
+
+        assertFailsWith(Exception::class) {
+            verifyCertAndKey(certs[1], keys[0])
+        }
     }
 
     @Test
