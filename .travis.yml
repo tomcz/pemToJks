@@ -6,3 +6,12 @@ cache:
   directories:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
+deploy:
+  provider: releases
+  api_key:
+    secure: ggZfFqoBERauiiTKO/JW+nDmxdL64eIyJfvamH9C6yk2sh8qKyihkReUMMnKWVXBnNWjYyYiX0XmINcKQliwdFapwGHNGN9+muNAeWlktPNNELDwyOujyIBMTrP+PhVeDF8vJ6QqfUjoDpOSvdGQDvBZVwulceBckhIE/Lsut/p1trqb9XAZl/o5Wg6O4bNvL86qvIPQ5dY8JI01YebTcY45zrcbY0WjWy3F5MsRJCDdzI93mgU88Bv7im8yqJVpNrSPihAZkJvdBxZP3m2caxbRTSqAhavBfjz0VjOoP3w9KAa4lNCdZVHJ2BO7LlnaFmV/cHi7uoNUb3zeBz4qGNmNKVmsCBYsB2QgcdwBc7hcY9D2M4mLCsGmkgKRU5UJ8h8Bmk38z2RpEw6XgLfQMlrlVTLe8fWhRmh7YQmZmO/R4ZQtIrBnG3w9c0c6XvuFF1GL62/B/EDCDG04cra0x1Wz6UHZ1kThtkBZAXBy5+tn6HSJzmv8KeQrTDNAwvOG08ouBIisc6W0qFtTh8iUnsT0fedcvgKvdi0eDBqwojlRK4doSwnBO4fDZx1GWMWjO3KSTzSI5oJZzljQev9ngmvDy8jmTVRYYG4eUuYp5BJs5f/bi0BXyEcNlqS6bx06iTMHrd+t4REsWsNa/hgnpMv6ZamWoDdPeyDtUpTUjbw=
+  file_glob: true
+  file: build/distributions/*
+  skip_cleanup: true
+  on:
+    tags: true
