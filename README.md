@@ -25,6 +25,8 @@ This creates a `build/distributions/pemToJks.zip` application bundle.
 
 ## Run the application
 
+To obtain the application bundle you can either build the application using the above steps or download the [latest release](https://github.com/tomcz/pemToJks/releases).
+
 The following example commands are run from the root of the unzipped application bundle.
 
 View help text:
