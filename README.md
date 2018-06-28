@@ -6,26 +6,9 @@ This is a Kotlin command line application that adds PEM-encoded certificates (in
 and RSA private keys (in PKCS #8 format) to a Java KeyStore, so that they can be used for
 SSL/TLS in Java applications.
 
-## Development
-
-### Requirements
-
-1. Java 8
-2. Clone this project
-
-### Build the application
-
-Run the following from the root of the project:
-
-```
-./gradlew
-```
-
-This creates a `build/distributions/pemToJks.zip` application bundle.
-
 ## Run the application
 
-To obtain the application bundle you can either build the application using the above steps or download the [latest release](https://github.com/tomcz/pemToJks/releases).
+To obtain the application bundle you can either build the application using the steps below or download the [latest release](https://github.com/tomcz/pemToJks/releases).
 
 The following example commands are run from the root of the unzipped application bundle.
 
@@ -68,3 +51,20 @@ Adding key & cert chain entry to keystore
 Saving keystore
 Done
 ```
+
+## Development
+
+### Requirements
+
+1. Java 8
+2. Clone this project
+
+### Build the application
+
+Run the following from the root of the project:
+
+```
+./gradlew
+```
+
+This creates a `build/distributions/pemToJks.zip` application bundle.
