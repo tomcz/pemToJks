@@ -94,7 +94,7 @@ fun readCertChain(certFile: File): List<Certificate> {
 fun readPrivateKeys(keyFile: File): List<PrivateKey> {
     println("Reading key file")
     return readFile(keyFile)
-            .filter { it.type == "RSA PRIVATE KEY" }
+            .filter { it.type == "RSA PRIVATE KEY" || it.type == "PRIVATE KEY" }
             .map { createPrivateKey(it) }
 }
 
