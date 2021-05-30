@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/tomcz/pemToJks.svg?branch=master)](https://travis-ci.org/tomcz/pemToJks)
-
 # PEM to JKS
 
 This is a Kotlin command line application that adds PEM-encoded certificates (in X.509 format)
@@ -42,7 +40,7 @@ Add a certificate chain and private key to a keystore:
 NOTE: If the keystore does not exist, it will be created.
 
 ```
-$> ./bin/pemToJks -cert cert.pem -key key.pem -alias useme -store test.jks 
+$> ./bin/pemToJks -cert cert.pem -key key.pem -alias useme -store test.jks
 Reading certificate file
 Reading key file
 Verifying certificate against key
@@ -56,7 +54,7 @@ Done
 
 ### Requirements
 
-1. Java 8
+1. Java 11
 2. Clone this project
 
 ### Build the application
@@ -64,7 +62,7 @@ Done
 Run the following from the root of the project:
 
 ```
-./gradlew
+make all
 ```
 
 This creates a `build/distributions/pemToJks.zip` application bundle.
