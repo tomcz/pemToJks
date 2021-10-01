@@ -72,7 +72,7 @@ class MainTest {
     }
 
     @Test
-    fun shouldWriteFirstCertToKeyStore() {
+    fun shouldWriteCertsToKeyStore() {
         val certs = readCertChain(certFile)
 
         addToKeyStore(ksFile, ksPass, alias, aliasPass, certs.toTypedArray(), null)
@@ -80,7 +80,8 @@ class MainTest {
         val ks = KeyStore.getInstance("JKS")
         ksFile.inputStream().use { ks.load(it, ksPass) }
 
-        assertEquals(certs[0], ks.getCertificate(alias))
+        assertEquals(certs[0], ks.getCertificate("alias0"))
+        assertEquals(certs[1], ks.getCertificate("alias1"))
     }
 
     @Test
