@@ -153,8 +153,8 @@ fun addToKeyStore(ksFile: File, ksPass: CharArray, alias: String, aliasPass: Cha
         println("Adding key & cert chain entry to keystore")
         ks.setKeyEntry(alias, key, aliasPass, chain)
     } else {
-        println("Adding certificate entry to keystore")
-        ks.setCertificateEntry(alias, chain[0])
+        println("Adding certificate entries to keystore")
+        chain.forEach { ks.setCertificateEntry(alias, it) }
     }
 
     println("Saving keystore")
