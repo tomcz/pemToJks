@@ -87,15 +87,15 @@ fun printUsageAndExit(options: Options) {
 fun readCertChain(certFile: File): List<Certificate> {
     println("Reading certificate file")
     return readFile(certFile)
-            .filter { it.type == "CERTIFICATE" }
-            .map { createCertificate(it) }
+        .filter { it.type == "CERTIFICATE" }
+        .map { createCertificate(it) }
 }
 
 fun readPrivateKeys(keyFile: File): List<PrivateKey> {
     println("Reading key file")
     return readFile(keyFile)
-            .filter { it.type == "RSA PRIVATE KEY" || it.type == "PRIVATE KEY" }
-            .map { createPrivateKey(it) }
+        .filter { it.type == "RSA PRIVATE KEY" || it.type == "PRIVATE KEY" }
+        .map { createPrivateKey(it) }
 }
 
 fun readFile(file: File): List<PemObject> {
@@ -137,9 +137,11 @@ fun verifyCertAndKey(cert: Certificate, key: PrivateKey) {
     }
 }
 
-fun addToKeyStore(ksFile: File, ksPass: CharArray, alias: String, aliasPass: CharArray,
-                  chain: Array<Certificate>, key: PrivateKey?) {
-
+fun addToKeyStore(
+    ksFile: File, ksPass: CharArray,
+    alias: String, aliasPass: CharArray,
+    chain: Array<Certificate>, key: PrivateKey?
+) {
     println("Loading keystore")
     val ks = KeyStore.getInstance("JKS")
 
@@ -152,6 +154,9 @@ fun addToKeyStore(ksFile: File, ksPass: CharArray, alias: String, aliasPass: Cha
     if (key != null) {
         println("Adding key & cert chain entry to keystore")
         ks.setKeyEntry(alias, key, aliasPass, chain)
+    } else if (chain.size == 1) {
+        println("Adding certificate entry to keystore")
+        ks.setCertificateEntry(alias, chain[0])
     } else {
         println("Adding certificate entries to keystore")
         chain.forEachIndexed { idx, cert -> ks.setCertificateEntry(alias + idx, cert) }
