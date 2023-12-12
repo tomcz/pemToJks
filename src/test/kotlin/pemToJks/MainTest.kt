@@ -23,7 +23,7 @@ class MainTest {
 
     @Before
     fun setUp() {
-        ksFile = createTempFile()
+        ksFile = File.createTempFile("key", "store")
     }
 
     @After
@@ -36,9 +36,9 @@ class MainTest {
         val certs = readCertChain(certFile)
         assertEquals(2, certs.size)
         var cert = certs[0] as X509Certificate
-        assertEquals("CN=pemToJks.service-a.internal.example.com", cert.subjectDN.name)
+        assertEquals("CN=pemToJks.service-a.internal.example.com", cert.subjectX500Principal.name)
         cert = certs[1] as X509Certificate
-        assertEquals("CN=pki-intermediate-01", cert.subjectDN.name)
+        assertEquals("CN=pki-intermediate-01", cert.subjectX500Principal.name)
     }
 
     @Test
