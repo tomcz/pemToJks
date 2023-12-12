@@ -48,7 +48,7 @@ fun main(args: Array<String>) {
     if (certs.isEmpty()) {
         throw RuntimeException("No certificates found!")
     }
-    if (keyFile != null && (keys == null || keys.isEmpty())) {
+    if (keyFile != null && keys.isNullOrEmpty()) {
         throw RuntimeException("No keys found!")
     }
 
